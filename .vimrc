@@ -34,6 +34,7 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'myusuf3/numbers.vim'
 Plug 'de-vri-es/vim-urscript'
+"Plug 'artur-shaik/vim-javacomplete2'
 
 
 "if has('nvim')
@@ -116,17 +117,19 @@ let g:ale_fixers = {
 \		'python': ['autopep8'],
 \		'lua': ['autopep8'],
 \}
+let g:ale_linters = {'java': ['javac']}
 let g:ale_python_flake8_options='--ignore=E225,E402,E501,W503'
 let g:ale_python_autopep8_options='--ignore=E24,W503'
 let g:ale_python_mypy_options='--ignore-missing-imports'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_sign_column_always = 1
+let g:ale_cache_executable_check_failures = 1
 
 "Indentlines
-let g:indentLine_enabled = 1
-set lcs=tab:\|\ 
-set list
+"let g:indentLine_enabled = 1
+"set lcs=tab:\|\ 
+"set list
 "hi SpecialKey ctermbg=grey
 
 "Deoplete
@@ -217,6 +220,11 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:pymode_paths = []
 "let g:pymode_options = 1
 "let g:pymode_python = 'python3'
+
+""JAVACOMPLETE2
+"autocmd FileType java setlocal omnifunc=javacomplete#Complete
+"nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+"imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 
 augroup filetypedetect
     au BufRead,BufNewFile *.aubo setfiletype lua
